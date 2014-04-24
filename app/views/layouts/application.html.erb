@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tutti Druyan</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <%= render 'layouts/header' %>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+	<script src="jquery.carouFredSel-6.2.1.js" type="text/javascript"></script>
+	<title>Tutti Druyan</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<%= render 'layouts/header' %>
 </head>
 <body>
 
-<%= yield %>
-
+	<%= yield %>
+	
+	
 </body>
 </html>
