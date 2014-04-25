@@ -5,7 +5,7 @@ html {
   
 }
 header {
-  padding-top:2%;
+  padding-top:10px;
 }
 
 body {
@@ -84,39 +84,22 @@ p {
   -webkit-box-shadow: none !important;
 }
 
-// yolo
-     
-    #wrapper {
-    height: 100%;
-    width: 100%;
-    min-height: 650px;
-    min-width: 900px;
-    padding-top: 1px;
-    }
-    #slider {
-    margin: 100px 0 0 0;
-    height: 500px;
-    overflow: hidden;
-    background: url(img/ajax-loader.gif) center center no-repeat;
-    }
-     
-    #slider .slide {
+/* Necessary CSS */
+.slider    { overflow:hidden; position:relative; }
+.slider ul { margin:0; padding:0; }
+.slider li { float:left;
+       margin:0 0 0 0; 
+        list-style:none; 
 
-    position: relative;
-    display: none;
-    height: 100%;
-    float: left;
-    background-position: center right;
-    cursor: pointer;
-    border-left: 1px solid #fff;
-    }
-     
-    #slider .slide:first-child {
-    border: none;
+        img {
+          padding-left:-5px;
+          height:500px;
+        }
+       } 
+/* IE6 issues */
+.slider ul { width:100%; }
 
-    }
-     
-    #slider .slide.active {
-    cursor: default;
-    }
-     
+.controls {
+    display: table;
+    margin: 0 auto;
+}

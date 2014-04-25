@@ -1,118 +1,24 @@
+<script>
+	window.onload = function(){
+		$( '#slider1' ).lemmonSlider();
+	}
+</script>
 
-	<script>
-			$(function() {
-				$('#slider').carouFredSel({
-					width: '100%',
-					align: false,
-					items: 3,
-					items: {
-						width: $('#wrapper').width() * 0.15,
-						height: 500,
-						visible: 1,
-						minimum: 1
-					},
-					scroll: {
-						items: 1,
-						timeoutDuration : 5000,
-						onBefore: function(data) {
-			
-							//	find current and next slide
-							var currentSlide = $('.slide.active', this),
-								nextSlide = data.items.visible,
-								_width = $('#wrapper').width();
-			
-							//	resize currentslide to small version
-							currentSlide.stop().animate({
-								width: _width * 0.15
-							});		
-							currentSlide.removeClass( 'active' );
-			
-							//	hide current block
-							data.items.old.add( data.items.visible ).find( '.slide-block' ).stop().fadeOut();					
-			
-							//	animate clicked slide to large size
-							nextSlide.addClass( 'active' );
-							nextSlide.stop().animate({
-								width: _width * 0.7
-							});						
-						},
-						onAfter: function(data) {
-							//	show active slide block
-							data.items.visible.last().find( '.slide-block' ).stop().fadeIn();
-						}
-					},
-					onCreate: function(data){
-			
-						//	clone images for better sliding and insert them dynamacly in slider
-						var newitems = $('.slide',this).clone( true ),
-							_width = $('#wrapper').width();
-
-						$(this).trigger( 'insertItem', [newitems, newitems.length, false] );
-			
-						//	show images 
-						$('.slide', this).fadeIn();
-						$('.slide:first-child', this).addClass( 'active' );
-						$('.slide', this).width( _width * 0.15 );
-			
-						//	enlarge first slide
-						$('.slide:first-child', this).animate({
-							width: _width * 0.7
-						});
-			
-						//	show first title block and hide the rest
-						$(this).find( '.slide-block' ).hide();
-						$(this).find( '.slide.active .slide-block' ).stop().fadeIn();
-					}
-				});
-			
-				//	Handle click events
-				$('#slider').children().click(function() {
-					$('#slider').trigger( 'slideTo', [this] );
-				});
-			
-				//	Enable code below if you want to support browser resizing
-				$(window).resize(function(){
-			
-					var slider = $('#slider'),
-						_width = $('#wrapper').width();
-			
-					//	show images
-					slider.find( '.slide' ).width( _width * 0.15 );
-			
-					//	enlarge first slide
-					slider.find( '.slide.active' ).width( _width * 0.7 );
-			
-					//	update item width config
-					slider.trigger( 'configuration', ['items.width', _width * 0.15] );
-				});
-
-			});
-		</script>
- 
-<div id="wrapper">
-	<div id="slider">
-		<div class="slide" style="background-image: url(http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277df70e4b069a82eaf340c/1383587738479/IMG_0974.JPG?format=750w);">
-			
-		</div>
-
-		<div class="slide" style="background-image: url(http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277dface4b069a82eaf346d/1383587776224/Tutti1.jpg?format=500w);">
-			
-		</div>
-
-		<div class="slide" style="background-image: url(http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277e033e4b0af356e29edaa/1383587903152/TUTTI%20DRUYAN1.jpg?format=500w);">
-			
-		</div>
-
-		<div class="slide" style="background-image: url(http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277deb2e4b0c2eac22f44a2/1383587565825/IMG_0973.JPG?format=750w);">
-			
-		</div>
-
-		<div class="slide" style="background-image: url(http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277de8ae4b0c2eac22f444f/1383587493214/Tutti2.jpg?format=500w);">
-			
-		</div>
-
-		<div class="slide" style="background-image: url(http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277de76e4b0c2eac22f442c/1383587458014/DA2R1812.jpg?format=500w);">
-			
-
-	</div>
+<div id="slider1" class="slider">
+	<ul>
+		<li><img src="http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277df70e4b069a82eaf340c/1383587738479/IMG_0974.JPG?format=750w" alt=""></li>
+		<li><img src="http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277dface4b069a82eaf346d/1383587776224/Tutti1.jpg?format=500w" alt=""></li>
+		<li><img src="http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277e033e4b0af356e29edaa/1383587903152/TUTTI%20DRUYAN1.jpg?format=500w" alt=""></li>
+		<li><img src="http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277deb2e4b0c2eac22f44a2/1383587565825/IMG_0973.JPG?format=750w" alt=""></li>
+		<li><img src="http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277de8ae4b0c2eac22f444f/1383587493214/Tutti2.jpg?format=500w" alt=""></li>
+		<li><img src="http://static.squarespace.com/static/526df583e4b0a46a4604d41d/52773ef8e4b0a439bc1e3658/5277de76e4b0c2eac22f442c/1383587458014/DA2R1812.jpg?format=500w" alt=""></li>
+	</ul>
+</div>
+<div class="controls">
+	<button type="button" class="btn btn-default btn-lg prev-slide">
+		<span class="icon-chevron-left"></span>
+	</button>
+	<button type="button" class="btn btn-default btn-lg next-slide">
+		<span class="icon-chevron-right"></span> 
+	</button>
 </div>
