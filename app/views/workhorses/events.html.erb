@@ -1,2 +1,11 @@
 <h1>Workhorses#events</h1>
-<p>Find me in app/views/workhorses/events.html.erb</p>
+<% @events.each do |x| %>
+	<div class="placemat">
+	<div class="text_column">
+		<%= x.title %><br><br><br><br><br><br><br><br>
+		<%= x.time %><br>
+		<%= x.duration %><br>
+	</div>
+	<div class="picture_column"><%= image_tag x.img %></div>
+	</div>
+<% end %>
