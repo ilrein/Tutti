@@ -1,13 +1,42 @@
 <header class="navbar navbar-static-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "TUTTI DRUYAN", root_path, id: "logo" %>
+      <script>
+        $(document).ready(function(){
+
+         $('#logo').click(function(){  
+         }).bind('ajax:success', function(){
+          alert('test logo');
+        }); 
+
+         $('#eventz').click(function(){
+          ev.preventDefault();  
+        }).bind('ajax:success', function(){
+          alert('test'); 
+        }).bind('ajax:error', function(){
+          alert('error');
+        });
+
+        $('#bio1').click(function(ev){
+          ev.preventDefault();  
+        }).bind('ajax:success', function(evt, data, status, xhr){
+         // $('.placemat').html(data);
+      
+          console.log(xhr.responseText);
+        });
+
+
+
+      });
+      </script>
+
+      <%= link_to "TUTTI DRUYAN", root_path, remote: true, id: "logo" %>
       <nav>
-      <ul></ul>
+        <ul></ul>
         <ul class="nav pull-left">
-          <li><%= link_to "Events", workhorses_events_path %></li>
+          <li><%= link_to "Events", workhorses_events_path, remote: true, id: 'eventz' %></li>
           <li><%= link_to "Announcements", workhorses_announcements_path %></li>
-          <li><%= link_to "Bio", workhorses_bio_path %></li>
+          <li><%= link_to "Bio", root_path, remote: true, id: 'bio1' %></li>
           <li><%= link_to "Music", workhorses_music_path %></li>
           <li><%= link_to "Photos", workhorses_photos_path %></li>
           <li><%= link_to "Voice Overs", workhorses_voice_overs_path %></li>
